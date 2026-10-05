@@ -1,0 +1,25 @@
+name: Experiment 11 CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Verify HTML file
+        run: |
+          test -f index.html
+          echo "index.html exists"
+
+      - name: CI validation successful
+        run: echo "Experiment 11 CI pipeline completed successfully"
